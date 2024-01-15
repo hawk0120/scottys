@@ -1,0 +1,154 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+
+
+body {
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: white;
+  }
+  
+  #content-wrapper {
+    text-align: center;
+    position: relative;
+    justify-content: center;
+    z-index: 1;
+    padding: 10px;
+  }
+  
+  canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+  }
+  
+  nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #222;
+    padding: 15px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  nav h1 {
+    color: white;
+    margin: 0;
+    font-size: 24px;
+  }
+  
+  nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 2px;
+    display: flex;
+  }
+  
+  nav li {
+    margin-right: 20px;
+  }
+  
+  nav a {
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    transition: color 0.3s ease;
+  }
+  
+  nav a:hover {
+    color: #aaa;
+  }
+  
+  .About {
+    display: flex;
+    align-items: center;
+  
+  }
+
+  form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    text-align: left;
+  }
+
+  form label {
+    display: block;
+    margin: 10px 0;
+    font-weight: bold;
+  }
+
+  form input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+
+  form input[type="submit"],
+  form input[type="reset"] {
+    background-color: #222;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  form input[type="submit"]:hover,
+  form input[type="reset"]:hover {
+    background-color: #555;
+  }
+
+
+
+  @media (max-width: 768px) {
+    nav ul {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 65px;
+    left: 0;
+    width: 100%;
+    background-color: #222;
+    }
+  
+    nav.active ul {    
+        display: flex;
+    }
+
+    nav.active li{
+
+        border: 1px;
+        border-color: white;
+    }
+  
+    .hamburger {
+      display: block;
+      cursor: pointer;
+      font-size: 20px;
+      color: white;
+      top: 24px;
+      position: absolute;
+      padding-right: 5%;
+      top: 15px; /* Adjust the top position as needed */
+      right: 15px; /* Adjust the right position as needed */
+      margin: 0;
+    }
+  }
+  
