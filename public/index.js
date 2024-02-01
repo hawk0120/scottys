@@ -1,4 +1,4 @@
-// Get the canvas and context
+/// Get the canvas and context
 const canvas = document.getElementById('carCanvas');
 const ctx = canvas.getContext('2d');
 
@@ -9,7 +9,7 @@ const ctx = canvas.getContext('2d');
 const carWidth = 100;
 const carHeight = 65;
 let carX = 50;
-const carY = canvas.height - carHeight - 20;
+let carY = canvas.height - carHeight - 20;
 const carSpeed = 3;
 
 
@@ -27,13 +27,49 @@ function drawCar() {
 // Function to update the car position
 function updateCar() {
   carX += carSpeed;
-  
-
+	
   // Reset car position when it goes off the canvas
   if (carX > canvas.width) {
-    carX = -carWidth;
+  
+	  carX = -carWidth;
   }
 }
+
+
+// Function to drive car to navBar
+function carToNav() {
+	const targetX = canvas.width - carWidth;
+	const targetY = nav.offsetTop - carHeight;
+	const duration = 10000; // Duration of the animation in milliseconds
+
+
+	const startTime = Date.now();
+
+	function moveCar() {
+		const currentTime = Date.now();
+		const elapsedTime = currentTime - startTime;
+		
+		const progress = elapsedTime / duration;
+		if(elapsedTime < duration) {
+	
+		
+		carX = carX + (targetX - carX) * progress;
+		carY = carY + (targetY - carY) * progress;
+		requestAnimationFrame(moveCar);
+		} else {
+			carX = -carWidth
+			carY = canvas.heigh - carHeight -20;
+	}
+	}
+	
+	moveCar();
+}
+
+
+
+
+
+
 
 // Function to handle resizing
 function resizeCar(newWidth) {
@@ -56,6 +92,7 @@ const nav = document.querySelector('nav');
 
 hamburger.addEventListener('click', () => {
   nav.classList.toggle('active');
+
 });
 
 
@@ -64,8 +101,11 @@ window.addEventListener('resize', () => {
     nav.classList.remove('active');
   }
 });
+
 document.addEventListener('click', () => {
   shakeCar(); // Call the shakeCar function when the document is clicked
+  //carToNav(); // Call the carToNav function when the document is clicked
+  //shakeViewport(); // Call the shakeViewport function when the document is clicked
 });
 
 // Function to shake the car
@@ -84,7 +124,7 @@ function shakeCar() {
 
       // Apply the shake to the car position
       carX += offsetX;
-      carY -+ canvas.height - carHeight - offsetY;;
+      carY -+ canvas.height - carHeight - offsetY;
 
       // Request the next animation frame to continue the shake
       requestAnimationFrame(shake);
@@ -93,7 +133,20 @@ function shakeCar() {
 
   // Call the shake function to start the shake
   shake();
+  // carToNav();
+  // shakeViewport();
 }
+
+// Function to shake Viewport
+function shakeViewport() {
+	document.body.classList.add('shake');
+	
+	//Remove the shake class after 1 secondL	
+	setTimeout(() => {
+		document.body.classList.remove('shake');
+	}, 1000);
+}
+
 
 
 // Function to animate the car
@@ -104,10 +157,8 @@ function animate() {
   requestAnimationFrame(animate);
 }
 
+
 handleResize();
 window.addEventListener('resize', handleResize);
-
-
-
 
 animate();

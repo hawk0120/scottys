@@ -3,15 +3,19 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Scotty's Auto Service</title>
-        <link rel="stylesheet" type="text/css" href="styles/main.css" />
-      </head>
+	<link rel="icon" href="assets/scottys-logo.jpeg" type="image/x-icon" />	
+	<title>Scotty's Auto Service</title>
+	<link rel="stylesheet" type="text/css" href="styles/main.css" />
+    </head>
 <body>
   <canvas id="carCanvas"></canvas>
   <div id="main">
     <nav>
-        <h1>Scotty's Auto</h1>
-        <div class="hamburger">&#9776;</div>
+       <div class="logo-container"> 
+	 <img href="/index.html" id="logo" src="assets/scottys-logo.jpeg" alt="Scotty's Auto Service Logo" />
+       </div>
+	 <div class="hamburger">&#9776;</div>
+
         <ul>
           <li><a href="/index.html">Home</a></li>
           <li><a href="/about.html">About</a></li>
@@ -21,8 +25,11 @@
         <div id="content-wrapper">
         <h1>Scotty's Auto Service</h1>
         <h2> Kenora's trusted auto shop</h2>
-        <p>At Scotty's Auto Service, we understand that finding a reliable auto shop can be as daunting as navigating Main Street Kenora on Friday of the August Long week end. That's why we've made it our mission define our customer's experience with a commitment to trust and transparency.</p>
+        <p id="scottys-main">At Scotty's Auto Service, we understand that finding a reliable auto shop can be as daunting as navigating Kenora's Main Street on Friday of the August Long Weekend. That's why we've made it our mission to define our customer's experience with a commitment to trust and transparency.</p>
     </div>
+    <footer>
+      Located at 345 2nd St S, Kenora, Ontario
+    </footer>
   </div>
   
   <script src="./index.js"></script>
